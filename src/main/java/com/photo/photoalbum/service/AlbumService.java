@@ -23,4 +23,14 @@ public class AlbumService {
             throw new EntityNotFoundException(String.format("앨범 아이디 $d로 조회되지 않았습니다", albumId));
         }
     }
+
+    public Album getAlbumName(String albumName){
+        Optional<Album> res = albumRepository.findByAlbumName(albumName);
+        if (res.isPresent()) {  //값이 있는지 확인
+            return res.get();   //있는 경우, Album 엔티티 반환
+        }
+        else{
+            throw new EntityNotFoundException(String.format("앨범 아이디 $d로 조회되지 않았습니다", albumName));
+        }
+    }
 }
