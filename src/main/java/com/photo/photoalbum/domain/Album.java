@@ -32,7 +32,7 @@ public class Album {
 
     @Column(name = "created_at", unique = false, nullable = true)
     @CreationTimestamp  //새로운 앨범을 생성해 DB INSERT할 때 자동으로 현재 시간을 입력
-    private Date createAt;
+    private Date createdAt;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "album", cascade = CascadeType.ALL)
     private List<Photo> photos;
